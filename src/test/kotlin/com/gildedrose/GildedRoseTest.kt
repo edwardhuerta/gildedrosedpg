@@ -16,7 +16,6 @@ internal class GildedRoseTest() {
             ComparableItem(backstage, 15, 20),
             ComparableItem(backstage, 10, 49),
             ComparableItem(backstage, 5, 49),
-            // this conjured Item does not work properly yet
             ComparableItem(conjured, 3, 6))
 
         val app = GildedRose(items)
