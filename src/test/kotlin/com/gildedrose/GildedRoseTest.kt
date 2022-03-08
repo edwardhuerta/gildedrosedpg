@@ -48,7 +48,7 @@ internal class GildedRoseTest() {
         verifyDay23(items); app.updateQuality()
         verifyDay24(items); app.updateQuality()
         verifyDay25(items); app.updateQuality()
-        verifyDay26(items); app.updateQuality() // agedBrie reaches lilmit
+        verifyDay26(items); app.updateQuality() // agedBrie reaches limit
 
         // after running the flow for 26 days, we see that there is no more value changes
         // we can see that brie is the slowest product to reach its extreme values
