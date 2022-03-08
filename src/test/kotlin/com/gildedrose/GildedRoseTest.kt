@@ -103,7 +103,7 @@ internal class GildedRoseTest() {
         assertEquals(ComparableItem(backstage, 12, 23), items[5])
         assertEquals(ComparableItem(backstage, 7, 50), items[6])
         assertEquals(ComparableItem(backstage, 2, 50), items[7])
-        assertEquals(ComparableItem(conjured, 0, 0), items[8])
+        assertEquals(ComparableItem(conjured, 0, 0), items[8])  // <-- quality reaches 0
     }
 
     private fun verifyDay4(items: Array<ComparableItem>) {
@@ -129,7 +129,7 @@ internal class GildedRoseTest() {
         assertEquals(ComparableItem(backstage, 10, 25), items[5])
         assertEquals(ComparableItem(backstage, 5, 50), items[6])
         assertEquals(ComparableItem(backstage, 0, 50), items[7])
-        assertEquals(ComparableItem(conjured, -2, 0), items[8]) // <-- quality reaches 0
+        assertEquals(ComparableItem(conjured, -2, 0), items[8])
     }
 
     private fun verifyDay6(items: Array<ComparableItem>) {
