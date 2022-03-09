@@ -82,6 +82,9 @@ private val processorsByName: Map<String, ItemProcessor> = mapOf(
 ```
 which is much more readable for this specific small project.
 
+The conjured item needs to be "fixed" because the item should degrade twice as fast. That is not the case
+in the default implementation, so I modified the ConjuredProcessor to always decrease by 2.
+
 # How to run
 you can run the code I wrote with the command line :
 ```
