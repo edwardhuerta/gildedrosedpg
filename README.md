@@ -34,7 +34,7 @@ Step 8 : Item.kt has 3 properties : name, sellIn, quality. the property called "
 So create a Map containing as the key the name of the Item, and the value of each entry will contain the corresponding processor.
 
 Step 9 : By using this strategy, I encapsulate the different quality calculations for each Item instance. This makes it
-future proof, because if a new Item.kt type is introduced, we simply create a new Processor class that knows how to manipulated the Item values, and
+future proof, because if a new Item.kt type is introduced, we simply create a new Processor class that knows how to manipulate the Item values, and
 add it to the "processorsByName" map.
 
 Step 10 : Please note that DexterityProcessor, ElixirProcessor, ConjuredProcessor processors have the same logic, so they have been replaced by a
