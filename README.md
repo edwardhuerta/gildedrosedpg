@@ -1,4 +1,4 @@
-My thought process:
+# My thought process:
 
 Step 1 : get familiar with the code. I studied the method updateQuality() and tried to find patterns and quick wins.
 
@@ -42,10 +42,13 @@ processor called : DecreaseByTwoAfterSellInExpiresProcessor since they share the
 I left the classes DexterityProcessor.kt, ElixirProcessor.kt, ConjuredProcessor.kt in the code to show that they are identical.
 
 Step 11 : I wanted to distinguish how the SellIn property of an Item is decreased by 1 after every time the quality value has been modified. I noticed that the line
-> item.sellIn = item.sellIn - 1
+```
+item.sellIn = item.sellIn - 1
+```
 was being repeated inside each Processor class except SulfurasProcessor.kt . So I created the SellInPostProcessor.kt class that has the responsibility
 to decrease the sellIn value by 1 after the quality value has been calculated. This was the end result of how to setup the "processorsByName" map inside GlideRose.kt:
 
+```
 private val processorsByName: Map<String, ItemProcessor> = mapOf(
         dexterity to SellInPostProcessor(DecreaseByTwoAfterSellInExpiresProcessor()),
         agedBrie  to SellInPostProcessor(AgedBrieProcessor()),
@@ -54,12 +57,19 @@ private val processorsByName: Map<String, ItemProcessor> = mapOf(
         backstage to SellInPostProcessor(BackstageProcessor()),
         conjured  to SellInPostProcessor(DecreaseByTwoAfterSellInExpiresProcessor()),
     )
+```
 
 But I do not like how that looks. For example,
-> SellInPostProcessor(DecreaseByTwoAfterSellInExpiresProcessor())
+```
+SellInPostProcessor(DecreaseByTwoAfterSellInExpiresProcessor())
+```
 is less readable and looks confusing. So I decided to not use the SellInPostProcessor.kt and put back the line
-> item.sellIn = item.sellIn - 1
+```
+item.sellIn = item.sellIn - 1
+```
 into each Processor class that needs it.
 
 you can run the code I wrote with the command line :
+```
 sh gradlew test
+```
