@@ -69,7 +69,23 @@ item.sellIn = item.sellIn - 1
 ```
 into each Processor class that needs it.
 
+Therefore, the end result of processorsByName is:
+```
+private val processorsByName: Map<String, ItemProcessor> = mapOf(
+        dexterity to DecreaseByTwoAfterSellInExpiresProcessor(),
+        agedBrie  to AgedBrieProcessor(),
+        elixir    to DecreaseByTwoAfterSellInExpiresProcessor(),
+        sulfuras  to SulfurasProcessor(),
+        backstage to BackstageProcessor(),
+        conjured  to ConjuredProcessor(),
+    )
+```
+which is much more readable for this specific small project.
+
+# How to run
 you can run the code I wrote with the command line :
 ```
 sh gradlew test
 ```
+This will show that the test will pass for my modified implementation.
+
